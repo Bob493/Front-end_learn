@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>字符串去重</title>
+	</head>
+	<body>
+    <!--这个题目一开始只是实现给一个固定的数组去重，我想要给指定的数组去重，于是添加了一个输入框，变相成了给字符串去重-->
+    <!--输入想要去重的字符串-->
+    <form action="post">
+      <input type="text" id="ary"/>
+      <input type="button" value="去重" onclick="fn()"/>
+    </form>
+		<script>
+      //循环遍历数组中的元素是否重复
+			function clone(arr){
+				var my=[];
+        var isRepeat;
+        for(var i=0;i<arr.length;i++)
+        {
+          isRepeat=false;
+          for(var j=0;j<my.length;j++)
+          {
+            if(arr[i]==my[j])
+            {
+              isRepeat=true;
+              break;
+            }
+          }
+          if(!isRepeat)
+          {
+            my.push(arr[i]);
+          }
+        }
+        document.write(my);
+      }
+      //获取输入的字符串，并逐一分割存入数组
+      function fn(){
+        var ar=document.getElementById("ary").value;
+        var ar1=ar.split("");
+        clone(ar1);
+      }
+		</script>
+	</body>
+</html>
