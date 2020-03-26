@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>DOM操作</title>
+  </head>
+  <body>
+    <h1 id="id1" class="wu">DOM操作</h1>
+    <h2 id="id2">兄弟节点</h2>
+    <script>
+      //为element添加一个名为newClass的样式
+      function addnew(element,newClass)
+      {
+        var my=element.className;
+        element.className=my+" "+newClass;
+      }
+      //为element移除一个名为oldClass的样式
+      function removeold(element,oldClass)
+      {
+        var my=element.className;
+        var my1=my.replace(oldClass,"");
+        element.className=my1;
+      }
+      var my2=document.getElementById("id1");
+      //先增加一个名为ok的类名，让后再移除，最后类名应该还是不变的
+      addnew(my2,"ok");
+      removeold(my2," ok");
+      //判断siblingNode和element是否为同一个父元素下的同一级的元素，返回bool值
+      function issiblingNode(Node1,Node2)
+      {
+        return Node1.parentNode===Node2.parentNode;
+      }
+      var node1=document.getElementById("id1");
+      var node2=document.getElementById("id2");
+      //node1和node2的父节点都是body，所以返回值应该为true
+     console.log( issiblingNode(node1,node2));
+      //获取element相对于浏览器窗口的位置，返回一个对象{x, y}
+      function getposition(element)
+      {
+        //通过element距离左边框的距离x和距离顶部边框的距离y来确定位置，类似于建立一个坐标系确定位置
+        return {
+          x:element.offsetLeft,
+          y:element.offsetTop
+        };
+      }
+      console.log( getposition(my2));
+    </script>
+  </body>
+</html>
