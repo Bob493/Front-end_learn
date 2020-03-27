@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>事件绑定</title>
+  </head>
+  <body>
+    <h1 id="band">点我点我</h1>
+    <form>
+      <input type="text" id="enter"/>
+    </form>
+    <script>
+      //这里遇到一个问题，在Chrome中无论怎么点击都没有事件响应
+      //后开百度发现Chrome不支持attachEvent()方法,只能在IE中响应
+      //在IE中之后发现还是不能响应，原来是11版本不能响应
+      //于是在head中加了默认版本为10，成功响应
+      function addEvent()
+      {
+        var element=document.getElementById("band");
+        if(element.addEventListerner)
+        element.addEventListerner("click",function()
+        {
+          alert("这是一个事件绑定！");
+        }
+        );
+        else
+        element.attachEvent("on"+"click",function()
+        {
+          alert("这是一个事件绑定！");
+        }
+        );
+      }
+      function addEvent1()
+      {
+        var element=document.getElementById("enter");
+        if(element.addEventListerner)
+        element.addEventListerner("keydown",
+        function(event)
+        {
+          if(event.keyCode==13)
+          alert("这是一个Enter事件绑定！");
+        })
+        else
+        element.attachEvent("on"+"keydown",
+        function(event)
+        {
+          if(event.keyCode==13)
+          alert("这是一个Enter事件绑定！");
+        })
+        }
+      addEvent();
+      addEvent1();
+    </script>
+  </body>
+</html>
