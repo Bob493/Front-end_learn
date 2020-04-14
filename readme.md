@@ -42,3 +42,8 @@ Obj.hasOwnProperty()判断是否是对象自己所有的属性，是则返回tru
 9、JS数组
 ===
 arr.reverse()倒序数组、arr.sort()排序数组、arr.push()在数组末尾添加元素、arr.unshift()在数组前面添加元素、arr.shift()获取数组中的第一个元素并删除第一个元素、arr.pop()获取数组中最后一个元素并删除、arr.splice(index,howmany,element)修改数组中任意位置的元素,index表示开始删除的位置，howmany表示删多少，element表示要添加的元素、arr.slice(x,y)表示复制原数组中的一部分，从x开始，不包含y、arr.concat(x,y)把几个数组连接起来、arr.join(x)把数组中的元素用x连接起来、score.map()返回一个新数组
+
+10、Date
+===
+JS中月份从0开始，如表示2020年4月14日为new Date(2020,3,14)
+把Date数据转换成number数据date.getTime()表示date时间距离1970年1月1日0点0分的毫秒数，把number型转换成Date型new Date()或者date.setTime()，传入number即可
