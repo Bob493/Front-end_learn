@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>JavaScript程序设计作业</title>
+    </head>
+    <body>
+        请输入需要解析的URL查询参数：
+        <br/>
+        <input type="text" id="ip1">
+        <input type="button" id="ip2" onclick="test()" value="解析">
+        <script>
+            /*
+            函数parseQuery用于解析url查询参数。
+            语法如下：
+                var obj = parseQuery(query)
+                query是被解析的查询参数，函数返回解析后的对象。
+            使用范例如下：
+                var jerry = parseQuery("name=jerry&age=1");
+                jerry; 	返回值：{name: " jerry ", age: "1"}
+                var tom = parseQuery("name= tom &age=12&gender&");
+                tom; 	返回值：{name: "tom", age: "12", gender: ""}
+            请写出函数parseQuery的实现代码。
+            */
+            function parseQuery(query){
+                var obj={};
+                var arr=query.replace(/\s/g,"").split("&");
+                if(arr[arr.length-1]==""){
+                    arr.pop();
+                }
+                for(var i=0;i<arr.length;i++){
+                    var item=arr[i].split("=");
+                    if(item[1]){
+                        obj[item[0]]=item[1];
+                    }
+                    else{
+                        obj[item[0]]="";
+                    }
+                }
+                return JSON.stringify(obj);
+            }
+            function test(){
+                var str=document.getElementById("ip1").value;
+                console.log(parseQuery(str));
+            }
+        </script>
+    </body>
+</html>
