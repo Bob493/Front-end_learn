@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.androidtest">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="收支助手"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".myself3"></activity>
+        <activity android:name=".note" />
+        <activity android:name=".myself2_item" />
+        <activity android:name=".myself_item" />
+        <activity android:name=".myself2" />
+        <activity android:name=".myself" />
+        <activity android:name=".income" />
+        <activity android:name=".expend" />
+        <activity android:name=".design" />
+        <activity android:name=".data" />
+        <activity android:name=".mainpage" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
